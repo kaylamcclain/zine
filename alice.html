@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alice in Wonderland</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #065696;
+            font-family: 'Georgia', serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 430px;
+            margin: 0 auto;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Rabbit navigation at top */
+        .rabbit-home {
+            display: block;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+            z-index: 10;
+        }
+
+        .rabbit-home:hover {
+            transform: scale(1.1);
+        }
+
+        .rabbit-image {
+            width: 100px;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+        }
+
+        /* Main content area */
+        .content-wrapper {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            padding-bottom: 100px;
+        }
+
+        /* Card container */
+        .card-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Background card image */
+        .card-background {
+            width: 500px;
+            height: auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            rotate: 90deg
+
+        }
+
+        /* Text overlay on card */
+        .card-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            line-height: 1.8;
+            color: #2c2c2c;
+            width: 80%;
+            z-index: 2;
+        }
+
+        .card-title {
+            font-size: 22px;
+            margin-bottom: 30px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+
+        .card-description {
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+
+        /* Alice character at bottom left */
+        .alice-character {
+            position: absolute;
+            bottom: -120px;
+            left: 50px;
+            width: 130px;
+            height: auto;
+            z-index: 3;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+        }
+
+        /* Cat stamp at top right */
+        .cat-stamp {
+            position: absolute;
+            top: -160px;
+            right: 10px;
+            width: 200px;
+            height: auto;
+            z-index: 4;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+            transform: rotate(5deg);
+        }
+
+        /* Desktop view */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 700px;
+            }
+
+            .rabbit-image {
+                width: 90px;
+            }
+
+            .card-background {
+                width: 420px;
+            }
+
+            .card-title {
+                font-size: 26px;
+            }
+
+            .card-description {
+                font-size: 20px;
+            }
+
+            .alice-character {
+                width: 170px;
+                left: -40px;
+            }
+
+            .cat-stamp {
+                width: 110px;
+                right: -25px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 900px;
+            }
+
+            .card-background {
+                width: 500px;
+            }
+
+            .card-title {
+                font-size: 30px;
+            }
+
+            .card-description {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Rabbit navigation button -->
+        <a href="index.html" class="rabbit-home">
+            <img src="images/rabbit.png" 
+                 alt="Home" 
+                 class="rabbit-image">
+        </a>
+
+        <!-- Main content area -->
+        <div class="content-wrapper">
+            <div class="card-container">
+                <!-- REPLACE WITH YOUR CARD/BOX IMAGE -->
+                <img src="images/blueeee.jpg" 
+                     alt="Card Background" 
+                     class="card-background">
+
+                <!-- Text overlay -->
+                <div class="card-text">
+                    <h1 class="card-title">alice in<br>wonderland</h1>
+                    <p class="card-description">
+                        this fantasy is an<br>
+                        allegory for the<br>
+                        journey of growing<br>
+                        up and the loss of<br>
+                        childhood<br>
+                        innocence
+                    </p>
+                </div>
+
+                <!-- Alice character image (bottom left) -->
+                <img src="images/alice.png" 
+                     alt="Alice" 
+                     class="alice-character">
+
+                <!-- Cat stamp image (top right) -->
+                <img src="images/cat.png" 
+                     alt="Cat Stamp" 
+                     class="cat-stamp">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
