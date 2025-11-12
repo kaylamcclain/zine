@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alice in Wonderland</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            font-family: 'Georgia', serif;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 430px;
+            margin: 0 auto;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Image placeholders */
+        .image-placeholder {
+            background-color: #333;
+            border: 2px dashed #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 12px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Lace corner - top left */
+        .lace-top {
+            position: absolute;
+            top: -150px;
+            left: -150px;
+            width: 300px;
+            height: auto;
+        }
+
+        /* White rabbit - clickable home button */
+        .rabbit-home {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 10;
+        }
+
+        .rabbit-home:hover {
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        /* Purple flowers - middle left */
+        .purple-flowers {
+            position: absolute;
+            top: 220px;
+            left: 30px;
+            width: auto;
+            height: 120px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .yellow-flower:hover,
+        .yellow-flower.active {
+            filter: drop-shadow(0 0 30px #ff1493) brightness(1.3);
+        }
+
+        /* Drink Me tag */
+        .drink-tag {
+            position: absolute;
+            top: 170px;
+            right: 20px;
+            width: 200px;
+            rotate: 270deg;
+            height: 200px;
+        }
+
+        /* Yellow flower with face */
+        .yellow-flower {
+            position: absolute;
+            top: 250px;
+            left: -100px;
+            width: 140px;
+            height: 200px;
+            z-index: 5;
+        }
+
+        /* Main quote text */
+        .quote-text {
+            position: absolute;
+            top: 400px;
+            right: 30px;
+            width: 150px;
+            font-size: 20px;
+            line-height: 1.4;
+            text-align: right;
+            font-style: italic;
+        }
+
+        /* Secondary quote */
+        .secondary-quote {
+            position: absolute;
+            top: 610px;
+            right: 20px;
+            transform: translateX(-50%);
+            width: 150px;
+            font-size: 15px;
+            line-height: 1.5;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Lace corner - bottom right */
+        .lace-bottom {
+            position: absolute;
+            bottom: 140px;
+            right: -130px;
+            width: 250px;
+            height: auto;
+        }
+
+        /* Cheshire cat */
+        .cheshire-cat {
+            position: absolute;
+            bottom: 50px;
+            right: 30px;
+            width: 200px;
+            height: auto;
+        }
+
+        /* Potion bottle - clickable */
+        .potion-bottle {
+            position: absolute;
+            bottom: -10px;
+            right: 200px;
+            width: 300px;
+            height: auto;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .potion-bottle:hover,
+        .potion-bottle.active {
+            transform: scale(1.4);
+            filter: drop-shadow(0 0 40px #daa520) brightness(1.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="images/lacesquare.png" alt="Lace Corner" class="lace-top">
+        
+        <a href="pathway.html" class="rabbit-home" title="Home">
+    <img src="images/rabbit.png" alt="White Rabbit" style="width: 100%; height: 100%; object-fit: cover;">
+</a>
+        
+        <img src="images/flower gif.gif" alt="Lace Corner" class="purple-flowers">
+       
+        <img src="images/drink me.jpg" alt="Drink Me Tag" class="drink-tag">
+        
+         <a href="https://www.youtube.com/watch?v=CcmvXYSqtoM" target="_blank" class="yellow-flower" title="Watch Video">
+            <img src="images/yellow lady.png" alt="yellow flower">
+        </a>
+        
+        
+        <div class="quote-text">    
+            "Who in the world am I? Ah, that's the great puzzle!"
+        </div>
+        
+        <!-- Secondary Quote -->
+        <div class="secondary-quote">
+            "I knew who I was this morning, but I've changed a few times since then."
+        </div>
+        
+        <!-- Lace decoration bottom -->
+        <img src="images/lacesquare.png" alt="Lace Corner" class="lace-bottom">
+        
+        <!-- Cheshire Cat -->
+        <img src="images/kittybug.png" alt="Cheshire Cat" class="cheshire-cat">
+        
+        <!-- Potion Bottle - Clickable -->
+       <a href="https://www.youtube.com/watch?v=hTLOlf5My6w" target="_blank" class="potion-bottle" title="Watch Video">
+    <img src="images/potion.png" alt="Potion Bottle" style="width: 100%; height: 100%; object-fit: cover;">
+        </a>
+    </div>
+
+    <script>
+        // Add click animation for purple flowers
+        const flowers = document.querySelector('.purple-flowers');
+        flowers.addEventListener('click', function(e) {
+            this.classList.add('active');
+            setTimeout(() => {
+                this.classList.remove('active');
+            }, 300);
+        });
+
+        // Add click animation for potion bottle
+        const potion = document.querySelector('.potion-bottle');
+        potion.addEventListener('click', function(e) {
+            this.classList.add('active');
+            setTimeout(() => {
+                this.classList.remove('active');
+            }, 300);
+        });
+    </script>
+</body>
+</html>

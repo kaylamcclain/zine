@@ -71,8 +71,8 @@
             text-decoration: none;
             text-align: center;
             letter-spacing: 0.5px;
-            padding: 15px 30px;
-            margin-bottom: 20px;
+            padding: 15px;
+            margin-bottom: 10px;
             transition: all 0.3s ease;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
             position: relative;
@@ -80,25 +80,24 @@
             cursor: pointer;
         }
 
-        /* ADJUST POSITIONING OF EACH MENU ITEM HERE */
         .menu-item:nth-child(1) {
-            margin-top: 80px; /* alice - adjust this value */
+            margin-top: 50px; 
         }
 
         .menu-item:nth-child(2) {
-            margin-top: 40px; /* drink me - adjust this value */
+            margin-top: 50px;
         }
 
         .menu-item:nth-child(3) {
-            margin-top: 60px; /* mad hatter - adjust this value */
+            margin-top: 50px;
         }
 
         .menu-item:nth-child(4) {
-            margin-top: 50px; /* curiouser - adjust this value */
+            margin-top: 50px; 
         }
 
         .menu-item:nth-child(5) {
-            margin-top: 40px; /* maze - adjust this value */
+            margin-top: 50px; 
         }
 
         .menu-item:hover {
@@ -202,8 +201,15 @@
         <!-- CHANGE TITLE TEXT HERE -->
         <h1 class="title">welcome to wonderland</h1>
 
+         <a href="index.html" class="rabbit-home">
+            <img src="images/rabbit.png"
+                 alt="Home" 
+                 class="rabbit-image">
+        </a>
+
         <div class="menu-links">
             <!-- CHANGE LINK DESTINATIONS AND TEXT HERE -->
+            <a href="eatme.html" class="menu-item">eat me</a>
             <a href="alice.html" class="menu-item">alice</a>
             <a href="drinkme.html" class="menu-item">drink me</a>
             <a href="madhatter.html" class="menu-item">mad hatter</a>
@@ -212,11 +218,7 @@
         </div>
 
         <!-- Home button - links back to main page -->
-        <a href="index.html" class="rabbit-home">
-            <img src="images/rabbit.png"
-                 alt="Home" 
-                 class="rabbit-image">
-        </a>
+       
     </div>
 </body>
 </html>
