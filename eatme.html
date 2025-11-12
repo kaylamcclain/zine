@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Down the Rabbit Hole</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 430px;
+            margin: 0 auto;
+            min-height: 100vh;
+            /* CHANGE BACKGROUND IMAGE HERE */
+            background-image: url('images/diamonds.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Top decorative curtain image */
+        .top-curtain {
+            width: 500px;
+            height: auto;
+            margin-left: -46px;
+            display: block;
+        }
+
+        .top-curtain img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Main content area */
+        .main-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 300px);
+            padding: 40px 20px;
+        }
+
+        /* Black circle container */
+        .circle-container {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            background-color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        /* Curved text at top of circle */
+        .curved-text {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+        }
+
+        .curved-text svg {
+            width: 100%;
+            height: 80px;
+        }
+
+        .curved-text text {
+            font-family: 'Georgia', serif;
+            font-size: 13px;
+            fill: #fff;
+            letter-spacing: 8px;
+        }
+
+        /* Center image in circle */
+        .center-image {
+            width: 180px;
+            height: 180px;
+            margin-top: 20px;
+        }
+
+        .center-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Bottom section */
+        .bottom-section {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 40px;
+        }
+
+        /* Rabbit home button */
+        .rabbit-home {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 10;
+        }
+
+        .rabbit-home:hover {
+            transform: scale(1.1);
+        }
+
+        .rabbit-home img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Bottom decorative image */
+        .bottom-image {
+            width: 280px;
+            height: auto;
+        }
+
+        .bottom-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 400px) {
+            .circle-container {
+                width: 280px;
+                height: 280px;
+            }
+
+            .curved-text text {
+                font-size: 24px;
+                letter-spacing: 6px;
+            }
+
+            .center-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .bottom-image {
+                width: 240px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-curtain">
+            <img src="images/curtain.png" alt="Decorative Curtain">
+        </div>
+
+        <div class="main-content">
+            <div class="circle-container">
+                <div class="curved-text">
+                    <svg viewBox="0 0 320 80">
+                        <path id="curve" d="M 30,60 Q 160,10 290,60" fill="transparent"/>
+                        <text>
+                            <textPath href="#curve" startOffset="50%" text-anchor="middle">
+                                down the rabbit hole
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+
+                <div class="center-image">
+                    <img src="images/alice gif.gif" alt="Falling Alice">
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <a href="pathway.html" class="rabbit-home" title="Home">
+                <img src="images/rabbit.png" alt="White Rabbit">
+            </a>
+
+            <div class="bottom-image">
+                <img src="images/eatme.png" alt="Eat Me Tag">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
