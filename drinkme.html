@@ -163,9 +163,61 @@
             transform: scale(1.4);
             filter: drop-shadow(0 0 40px #daa520) brightness(1.4);
         }
+        .play-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .play-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .play-button {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 3px solid white;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .play-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .play-button::before {
+            content: '▶';
+            color: white;
+            font-size: 40px;
+            margin-left: 8px;
+        }
     </style>
 </head>
 <body>
+     <div class="play-overlay" id="playOverlay">
+        <div class="play-button" id="playButton"></div>
+    </div>
+    <audio id="backgroundMusic" loop>
+        <source src="audio/golden-afternoon.mp3" type="audio/mpeg">
+    </audio>
     <div class="container">
         <img src="images/lacesquare.png" alt="Lace Corner" class="lace-top">
         
@@ -203,7 +255,59 @@
         </a>
     </div>
 
-    <script>
+  <script>
+        const audio = document.getElementById('backgroundMusic');
+        const playOverlay = document.getElementById('playOverlay');
+        const playButton = document.getElementById('playButton');
+
+        // Set volume
+        audio.volume = 0.4;
+
+        // Try to autoplay when page loads
+        function attemptAutoplay() {
+            audio.play().then(() => {
+                // Autoplay successful
+                console.log('Audio playing automatically');
+            }).catch((error) => {
+                // Autoplay blocked - show play button
+                console.log('Autoplay blocked, showing play button');
+                playOverlay.classList.add('show');
+            });
+        }
+
+        // Attempt autoplay on page load
+        window.addEventListener('load', attemptAutoplay);
+
+        // Also try on first user interaction (helps with some browsers)
+        document.addEventListener('click', function initAudio() {
+            if (audio.paused) {
+                attemptAutoplay();
+            }
+            // Remove this listener after first click
+            document.removeEventListener('click', initAudio);
+        }, { once: true });
+
+        // Play button click handler
+        playButton.addEventListener('click', function() {
+            audio.play();
+            playOverlay.classList.remove('show');
+        });
+
+        // Stop music when leaving the page
+        window.addEventListener('beforeunload', function() {
+            audio.pause();
+            audio.currentTime = 0;
+        });
+
+        // Pause when page visibility changes (tab switching)
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                audio.pause();
+            } else {
+                audio.play();
+            }
+        });
+
         // Add click animation for purple flowers
         const flowers = document.querySelector('.purple-flowers');
         flowers.addEventListener('click', function(e) {
@@ -221,6 +325,6 @@
                 this.classList.remove('active');
             }, 300);
         });
-    </script>
+        </script>
 </body>
 </html>

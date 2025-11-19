@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gate Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: white;
+            font-family: Georgia, serif;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            width: 428px;
+            height: 926px;
+            margin: 0 auto;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .gate-section {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        
+        .gate-img {
+            width: 340px;
+            height: auto;
+            display: block;
+        }
+        
+        .rabbit-link {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        
+        .rabbit-img {
+            width: 50px;
+            height: auto;
+            display: block;
+        }
+        
+        .text-below {
+            font-size: 18px;
+            color: black;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="gate-section">
+            <!-- Replace src with your gate image path -->
+            <img src="images/gate-open.png" alt="Ornate Gate" class="gate-img">
+            
+            <a href="pathway.html" class="rabbit-link">
+                <!-- Replace src with your rabbit image path -->
+                <img src="images/rabbit.png" alt="Rabbit" class="rabbit-img">
+            </a>
+        </div>
+        
+        <p class="text-below">only if you can find it</p>
+    </div>
+</body>
+</html>
